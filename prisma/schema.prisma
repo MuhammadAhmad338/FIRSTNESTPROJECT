@@ -1,0 +1,23 @@
+datasource db {
+  provider = "postgresql"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// This maps directly to a 'Product' table in your PostgreSQL database
+model Product {
+  id          String   @id @default(uuid()) // Generates a unique secure UUID string
+  name        String
+  description String? // The '?' makes this field optional
+  price       Decimal  @db.Decimal(10, 2) // Perfect data type for accurate currency storage
+  createdAt   DateTime @default(now()) // Auto-timestamps records upon creation
+}
+
+model User {
+  id       String @id @default(uuid()) // Unique identifier for each user
+  email    String @unique // Ensures no duplicate emails
+  password String // Store hashed passwords for security
+  username String
+}
