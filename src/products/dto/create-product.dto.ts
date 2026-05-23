@@ -1,5 +1,5 @@
 export class CreateProductDto {
-    name: string;
+    name: string | undefined;
     description?: string;
-    price: number;
+    price: number | undefined;
 }

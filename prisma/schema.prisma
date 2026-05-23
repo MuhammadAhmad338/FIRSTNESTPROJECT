@@ -21,3 +21,11 @@ model User {
   password String // Store hashed passwords for security
   username String
 }
+
+model Orders {
+  id           String  @id @default(uuid()) // Generates a unique secure UUID string
+  userId       String
+  productId    String
+  quantity     Int
+  total_amount Decimal @db.Decimal(10, 2) // Perfect data type for accurate currency storage
+}

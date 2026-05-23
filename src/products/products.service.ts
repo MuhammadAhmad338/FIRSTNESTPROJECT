@@ -10,9 +10,9 @@ export class ProductsService {
   create(data: CreateProductDto) {
     return this.prisma.product.create({
       data: {
-        name: data.name,
+        name: data.name!,
         description: data.description,
-        price: data.price,
+        price: data.price!,
       },
     });
   }
